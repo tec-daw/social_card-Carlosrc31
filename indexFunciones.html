@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Social Card</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Gideon+Roman&display=swap" rel="stylesheet"> 
+    <script src="https://kit.fontawesome.com/c8080902bb.js" crossorigin="anonymous"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Abril+Fatface&display=swap" rel="stylesheet"> 
+</head>
+<body>
+
+    <style>
+        *{
+            padding: 0;
+            margin: 0;
+            box-sizing: border-box;
+        }
+
+        body{
+            background: linear-gradient(to left, #ff5232, #ff7b5a);
+            font-family: 'Gideon Roman', cursive;
+            font-size: 11px;
+        }
+
+        .Nombre{
+            background: gainsboro;
+            width: 225px;
+            height: 25px;
+            position: relative;
+            top: 60px;
+            border-radius: 8%;
+            background: linear-gradient(to left, #ff7b5a, #ff5232);
+            box-shadow: 7px 7px 10px #ff5232;
+        }
+
+        .Nombre h1{
+            text-align: center;
+            font-family: 'Abril Fatface', cursive;
+            font-size: 18px;
+            color: white;
+            text-transform: capitalize;
+        }
+
+        .Nombre:hover{
+            background: linear-gradient(to left, #ff5232, #ff9e81);
+        }
+
+        .Container{
+            background: white;
+            width: 400px;
+            height: 500px;
+            margin: 100px auto;
+            border-radius: 15px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            box-shadow: 4px 8px 10px black;
+            position: relative;
+        }
+
+        .Container_fondo{
+            width: 90%;
+            height: 200px;
+            border-radius: 5%;
+        }
+
+        .Container_fondo img{
+            margin-top: 0.5px;
+            width: 100%;
+            height: 100%;
+            border-radius: 5%;;
+        }
+
+        .Container_foto{
+            width: 150px;
+            height: 150px;
+            border: 10px solid white;
+            border-radius: 50%;
+            position: absolute;
+            top: 90px;
+            background: white;
+            overflow: hidden;
+            
+        }
+
+        .Container_foto img{
+            position: relative;
+            top: 150px;
+            width: 130px;
+            height: 130px;
+            border-radius: 50%;
+            margin: auto auto;
+            transition: 1.3s;
+        }
+
+        .Container_foto:hover > img{
+            position: relative;
+            top: 0;
+        }
+
+        .Datos{
+            position: relative;
+            top: 67px;
+            width: 90%;
+            height: 190px;
+            display: flex;
+        }
+
+        .Datos div{
+            width: 33%;
+            height: 90%;
+            margin: 10px 5px;
+        }
+
+        .Datos h1{
+            font-family: 'Gideon Roman', cursive; 
+            font-size: 16px;
+            font-weight: 100px;
+            text-align: center;
+            margin: 0 0 5px;
+            text-shadow: 6px 6px 8px black;
+        }
+
+        .Datos_contacto ul{
+            list-style: none;
+            font-size: 10px;
+        }
+
+        .Datos_contacto li{
+            margin: 6px 0;
+        }
+
+        .Datos_contacto a{
+            text-decoration: none;
+            color: black;
+        }
+
+        .Datos_contacto i{
+            color: #ff7b5a;
+        }
+
+        .Container_followers{
+            width: 65px;
+            height: 20px;
+            position: absolute;
+            font-size: 11px;
+            font-family:  'Gideon Roman', cursive;
+            bottom: 39px;
+            right: 70px;
+            color: #fff;
+            border-color: #ff5232;
+            background-color: #ff7b5a;
+            box-shadow: 2px 2px 3px #ff5232;
+        }
+
+        .Container_followers:active{
+            box-shadow: 0 0 5px 0 #ff5232;
+        }
+        
+        .Container_counter{
+            text-align: center;
+            border: 1.5px solid #ff5232;
+            position: absolute;
+            width: 30px;
+            height: 20px;
+            bottom: 39px;
+            right: 40px;
+            font-size: 15px;
+            font-weight: 50;
+            text-shadow: 2px 2px 3px black;
+        }
+
+
+
+    </style>
+
+     <!-- Librerías usadas para React -->
+     <script src="https://unpkg.com/react@16.12.0/umd/react.development.js"></script>
+     <script src="https://unpkg.com/react-dom@16.12.0/umd/react-dom.development.js"></script>
+     <script src="https://unpkg.com/@babel/standalone@7.8.3/babel.js"></script>
+   
+     <div id="root"></div>
+
+     <script type="text/babel">
+     
+     const rootElement = document.querySelector("#root");
+
+    //  ------------ SocialCard usando Funciones -----------
+
+     function SocialCards(props){
+        
+        
+        const [counter, setCounter] = React.useState(0);
+        
+        return (
+                <main>
+                    <div className="Container">
+
+                        <div className="Container_fondo">
+                            <img src="https://i.pinimg.com/originals/96/69/aa/9669aaa4d1e30a0e89063fde183b768e.gif"/>
+                        </div>
+
+                        <div className="Container_foto">
+                            <img src="myAvatar.png" />
+                        </div>
+                            
+                            <div className="Nombre">
+                                <h1>{props.name}</h1>
+                            </div>
+                            
+                        <div className="Datos">
+
+                        
+                            <div className="Datos_info">
+                                <h1>Información</h1>
+                                <p>Soy estudiante del Tecnológico de Monterrey campus Hidalgo en la carrera de ingeniería en tecnologías de la Información,
+                                    actualmente estoy cursando el {props.semestre} semestre. 
+                                </p>
+                            </div>
+
+                            <div className="Datos_otros">
+                                <h1>Gustos</h1>
+                                <p>En mis tiempos libres me gusta ver el fútbol soccer, practicar programación, jugar juegos de mesa y también 
+                                    me gustan los videojuegos. Mi comida favorita es la pizza. </p>
+                            </div>
+                            
+                            <div className="Datos_contacto">
+                                <h1>Contacto</h1>
+                                <ul>
+                                    <li> <i className="fab fa-facebook-square" ></i> José Carlos Rosas </li>
+                                    <li> <i class="fab fa-linkedin"></i> José Carlos Rosas C</li>
+                                    <li> <i class="fab fa-github-square"></i> <a href="https://github.com/Carlosrc31">Carlosrc31</a></li>
+                                    <li> <i class="fas fa-phone-square-alt"></i> 775-145-7971 </li>
+                                    <li> <i class="fas fa-envelope"></i> A01275825@itesm.mx </li>
+                                </ul>
+                                
+                            </div>
+                            
+                        </div>
+                        
+                        <button type="button" className="Container_followers" onClick={()=>setCounter(counter+1)}> <i class="far fa-thumbs-up"></i> Me gusta</button>
+                        
+                        <div className="Container_counter">
+                           <p> {counter} </p>
+                        </div>
+                    
+                    </div>
+                </main>
+            );
+     }
+
+    
+     ReactDOM.render(
+         <SocialCards name="josé carlos Rosas Chapa" semestre="7"/>,
+         rootElement
+     )
+     </script>
+
+
+</body>
+</html>
