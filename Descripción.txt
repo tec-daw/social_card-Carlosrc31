@@ -1,0 +1,5 @@
+Hice una social card parecida un poco a lo que se ve en una red social, con sus diferencias. 
+Implementé el componente de React y también hice uso de las props y state para manipular algunos 
+elementos/valores de la social card. Además integré algunos conceptos de css que he estado aprendiendo.
+
+Link del Video: https://drive.google.com/file/d/1J5UaMf7zLV4E2v101hJWvMceSG69DwoA/view?usp=sharing
